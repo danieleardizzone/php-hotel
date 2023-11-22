@@ -48,16 +48,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/app.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <?php foreach($hotels as $hotel) {
-            echo $hotel['name'];
-            echo $hotel['description'];
-            echo $hotel['vote'];
-            echo $hotel['distance_to_center'];
-        }?>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <?php foreach($hotels as $hotel) {?>
+      <th scope="col"><?php echo $hotel['name']?></th>
+      <?php } ?>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Descrizione</th>
+      <?php foreach($hotels as $hotel) {?>
+      <td>Lorem ipsum dolor sit amet.</td>
+      <?php } ?>
+    </tr>
+    <tr>
+      <th scope="row">Parcheggio</th>
+      <?php foreach($hotels as $hotel) {?>
+      <td><?php if($hotel['parking']) {?>
+        SI
+        <?php } else { ?>
+        NO
+        <?php } ?></td>
+      <?php } ?>
+    </tr>
+    <tr>
+      <th scope="row">Voto</th>
+      <?php foreach($hotels as $hotel) {?>
+      <td><?php echo $hotel['vote']?></td>
+      <?php } ?>
+    </tr>
+    <tr>
+      <th scope="row">Distanza dal centro</th>
+      <?php foreach($hotels as $hotel) {?>
+      <td><?php echo $hotel['distance_to_center']?> km</td>
+      <?php } ?>
+    </tr>
+  </tbody>
+</table>
     </div>
 </body>
 </html>
